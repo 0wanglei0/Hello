@@ -4,6 +4,8 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -52,7 +54,33 @@ public class TestLoginWindow extends JFrame {
                     jt1.setText("");
                 }
             }
+        });
 
+        jb.addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+                // TODO 自動生成されたメソッド・スタブ
+                
+            }
+
+            public void keyPressed(KeyEvent e) {
+                // TODO 自動生成されたメソッド・スタブ
+                if(e.getKeyChar() == e.VK_ENTER) {
+                    if(jt.getText().equals("mr") && jt1.getText().equals("mrsoft")) {
+                        JOptionPane.showMessageDialog(new JFrame().getContentPane(), "login successed");
+                    } else {
+                        JOptionPane.showMessageDialog(new JFrame().getContentPane(), "user or password is wrong");
+                        jt.setText("");
+                        jt1.setText("");
+                    }
+                }
+            }
+
+            public void keyReleased(KeyEvent e) {
+                // TODO 自動生成されたメソッド・スタブ
+                
+            }
+            
         });
         jb1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
