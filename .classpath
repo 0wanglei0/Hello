@@ -18,5 +18,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/wang_lei/Desktop/project/blade-track/blade-track/blade-track-lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

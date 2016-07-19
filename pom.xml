@@ -3,4 +3,11 @@
   <groupId>Hello</groupId>
   <artifactId>Hello</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+   <dependency>  
+        <groupId>org.apache.kafka</groupId>  
+        <artifactId>kafka_2.11</artifactId>  
+        <version>0.10.0.0</version>  
+    </dependency>
+      </dependencies>
 </project>
