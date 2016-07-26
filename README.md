@@ -2,7 +2,7 @@
 =========
 
 
-play\<br>
+play\
 
 SHOW view\<br>
 
