@@ -2,10 +2,12 @@
 =========
 
 
-play\<br>
-SHOW view\<br>
+play
 
-how can i use github well\<br>
-and how to make a refs from readme.md to readme.md\<br>
+SHOW view
 
-and how to the change line \<br>
+how can i use github well
+
+and how to make a refs from readme.md to readme.md
+
+and how to the change line
