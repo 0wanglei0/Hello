@@ -2,9 +2,9 @@
 =========
 
 
-play\
+play
 
-SHOW view\<br>
+SHOW view
 
 how can i use github well\<br>
 
