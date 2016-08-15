@@ -1,0 +1,7 @@
+Hbase更新删除
+
+
+插入/更新
+put 'table name','row','colunm',value
+删除
+delete 'table name','row','value'

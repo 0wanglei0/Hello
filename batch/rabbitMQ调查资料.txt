@@ -1,0 +1,85 @@
+1.两者综合比较相关
+http://www.cnblogs.com/davidwang456/p/4076097.html
+
+1)在架构模型方面:
+    RabbitMQ遵循AMQP协议，RabbitMQ的broker由Exchange,Binding,queue组成，其中exchange和binding组成了消息的路由键；客户端Producer通过连接channel和server进行通信，Consumer从queue获取消息进行消费（长连接，queue有消息会推送到consumer端，consumer循环从输入流读取数据）。rabbitMQ以broker为中心；有消息的确认机制。
+
+    kafka遵从一般的MQ结构，producer，broker，consumer，以consumer为中心，消息的消费信息保存的客户端consumer上，consumer根据消费的点，从broker上批量pull数据；无消息确认机制。
+
+2)吞吐量:
+    kafka具有高的吞吐量，内部采用消息的批量处理，zero-copy机制，数据的存储和获取是本地磁盘顺序批量操作，具有O(1)的复杂度，消息处理的效率很高。
+
+    rabbitMQ在吞吐量方面稍逊于kafka，他们的出发点不一样，rabbitMQ支持对消息的可靠的传递，支持事务，不支持批量的操作；基于存储的可靠性的要求存储可以采用内存或者硬盘。
+
+3)可用性:
+    rabbitMQ支持miror的queue，主queue失效，miror queue接管。
+
+    kafka的broker支持主备模式。
+
+4)集群负载均衡:
+    kafka采用zookeeper对集群中的broker、consumer进行管理，可以注册topic到zookeeper上；通过zookeeper的协调机制，producer保存对应topic的broker信息，可以随机或者轮询发送到broker上；并且producer可以基于语义指定分片，消息发送到broker的某分片上。
+
+    rabbitMQ的负载均衡需要单独的loadbalancer进行支持。
+
+
+2.kafka是个奇葩
+http://www.csdn123.com/html/topnews201408/21/1021.htm
+
+Kafka是啥？是个消息中间件吗？那和市面上其他一堆堆的中间件例如ActiveMQ, RabbitMQ有什么区别？
+答案只有一个：
+Kafka是个集群的消息中间件+存储，一个节点可以存储几T的数据！
+
+用于处理的数据特点：
+1)准实时，不需要秒级响应，分钟级别即可。
+2)数据量巨大，是交易数据的10倍以上。
+3)数据消费者众多，例如评级、投票、排序、个性化推荐、安全、运营监控、程序监控、后期报表等
+
+处理特点：
+1）存在数据复用，在Linkin平均生产1条消息会被消费5.5次。
+2）数据生产者和数据消费者的速度不对等，所以要把数据沉淀在Kafka内慢慢处理
+3）性能上追求高吞吐，保证一定的延时性之内。这方面做了大量优化，包括没有全局hash，批量发送，跨数据中心压缩等等。
+4）容错性上使用的“至少传输一次”的语义。不保证强一次，但避免最多传一次的情况。
+5）集群中数据分区，保证单个数据消费者可以读到某话题(topic)的某子话题(例如某用户的数据)的所有数据，避免全局读数据
+6）数据规范性，所有数据分为数百个话题，然后在数据的源头——生产者(Producer)这边就用Schema来规范数据，这种理念使得后期的数据传输、序列化、压缩、消费都有了统一的规范，同时也解决了这个领域非常麻烦的数据版本不兼容问题——生产者一改代码，消费者就抓瞎。
+用于监控，这个系统的威力在于，前面所有生产系统的数据流向，通过这个系统都能关联起来，用于日常的运营也好，用于数据审计，用于运维级别的监控也好都是神器啊！
+
+kafka深度解析
+http://www.tuicool.com/articles/QJvu2e
+
+1）以时间复杂度为O(1)的方式提供消息持久化能力，并保证即使对TB级以上数据也能保证常数时间的访问性能
+2）高吞吐率。即使在非常廉价的商用机器上也能做到单机支持每秒100K条消息的传输
+3）支持Kafka Server间的消息分区，及分布式消息消费，同时保证每个partition内的消息顺序传输
+4）同时支持离线数据处理和实时数据处理
+
+kafka注意：
+因为Kafka读取特定消息的时间复杂度为O(1)，即与文件大小无关，所以这里删除文件与Kafka性能无关，选择怎样的删除策略只与磁盘以及具体的需求有关。
+也不需要锁机制，高吞吐量
+
+消息队列意义：解耦，冗余，扩展性，灵活性&峰值处理能力，可恢复性，送达保证，顺序保证，缓冲，理解数据流，异步通信
+
+rabbitMQ
+http://blog.csdn.net/whycold/article/details/41119807
+AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。
+用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。
+
+ConnectionFactory、Connection、Channel
+Connection是RabbitMQ的socket链接，它封装了socket协议相关部分逻辑。ConnectionFactory为Connection的制造工厂。
+Channel是我们与RabbitMQ打交道的最重要的一个接口，我们大部分的业务操作是在Channel这个接口中完成的，包括定义Queue、定义Exchange、绑定Queue与Exchange、发布消息等。
+
+Queue RabbitMQ的内部对象，RabbitMQ中的消息都只能存储在Queue中，多个消费者可以订阅同一个Queue，这时Queue中的消息会被平均分摊给多个消费者进行处理，而不是每个消费者都收到所有的消息并处理。
+
+需要回执：在实际应用中，可能会发生消费者收到Queue中的消息，但没有处理完成就宕机（或出现其他意外）的情况，这种情况下就可能会导致消息丢失。为了避免这种情况发生，我们可以要求消费者在消费完消息后发送一个回执给RabbitMQ，RabbitMQ收到消息回执（Message acknowledgment）后才将该消息从Queue中移除；如果RabbitMQ没有收到回执并检测到消费者的RabbitMQ连接断开，则RabbitMQ会将该消息发送给其他消费者（如果存在多个消费者）进行处理。这里不存在timeout概念，一个消费者处理消息时间再长也不会导致该消息被发送给其他消费者，除非它的RabbitMQ连接断开。
+这里会产生另外一个问题，如果我们的开发人员在处理完业务逻辑后，忘记发送回执给RabbitMQ，这将会导致严重的bug——Queue中堆积的消息会越来越多；消费者重启后会重复消费这些消息并重复执行业务逻辑…
+
+另外pub message是没有ack的。
+
+持久化：如果我们希望即使在RabbitMQ服务重启的情况下，也不会丢失消息，我们可以将Queue与Message都设置为可持久化的（durable），这样可以保证绝大部分情况下我们的RabbitMQ消息不会丢失。但依然解决不了小概率丢失事件的发生（比如RabbitMQ服务器已经接收到生产者的消息，但还没来得及持久化该消息时RabbitMQ服务器就断电了），如果我们需要对这种小概率事件也要管理起来，那么我们要用到事务。
+
+多进程：有多个消费者同时订阅同一个Queue中的消息，Queue中的消息会被平摊给多个消费者。我们可以通过设置prefetchCount来限制Queue每次发送给每个消费者的消息数
+
+消息->exchange->(多个)队列->(多个)消费者  1个消息传到多个队列，1个队列传给多个消费者。
+
+exchange types
+fanout  direct  topic  headers
+
+RPC:支持
