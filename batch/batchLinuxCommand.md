@@ -94,3 +94,6 @@
 
 *29. shutdown
     关闭计算机   shutdown -f 重启
+    
+*30. netstat -tunlp | grep 端口号
+    查询端口占用 例 ：netstat -tunlp |grep 22
