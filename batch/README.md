@@ -43,8 +43,8 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 
 13. find<br>
 　　　在给定位置搜寻与条件匹配的文件<br>
-　　　* find -name  区分大小写<br>
-　　　* find -iname  不区分大小写<br>
+      * find -name  区分大小写<br>
+      * find -iname  不区分大小写<br>
 
 14. tar<br>
 　　　创建、查看和提取tar压缩文件<br>
