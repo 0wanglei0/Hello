@@ -5,3 +5,12 @@ Hbase更新删除
 put 'table name','row','colunm',value
 删除
 delete 'table name','row','value'
+
+KT 更新删除
+
+
+查看：ktremotemgr list -pv
+删除: ktremotemgr remove 9adedea12241312312 
+设置/新建: ktremotemgr set 9adedea12241312312 35_20160618,36_20160618
+
+9adedea12241312312是rowKey        35_20160618,36_20160618  是value
