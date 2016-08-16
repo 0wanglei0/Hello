@@ -109,3 +109,7 @@
         chmod o-x filename 
     （2）删除文件权限
         chmod ugo-x filename 或 chmod a-x filename
+    （3）删除文件夹及文件夹内文件权限
+        现在，假设有一文件夹 TEST，里面有一些脚本，所有这些（包括 TEST 文件夹）拥有权限 -rwxrwxr-x。如果你想移除用户组的写权限，你可以运行命令：
+            chmod -R g-w TEST
+        运行命令 ls -l，你讲看到列出的 TEST 文件夹的权限信息是 drwxr-xr-x。用户组被去除了写权限（其目录下的所有文件也如此）。
