@@ -100,3 +100,12 @@
     
 *30. netstat -tunlp | grep 端口号
     查询端口占用 例 ：netstat -tunlp |grep 22
+    
+*31 文件赋予权限（权限为rwx）
+    chmod 权限 文件名
+    chmod u+x 权限 文件名    u+x  当前用户    x   执行权限  
+    chmod ug+x 权限 文件名   ug+x 用户组用户
+    （1）删除其他用户的权限
+        chmod o-x filename 
+    （2）删除文件权限
+        chmod ugo-x filename 或 chmod a-x filename
