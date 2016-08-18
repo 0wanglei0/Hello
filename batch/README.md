@@ -117,3 +117,6 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 　　　　　　chmod -R g-w TEST<br>
 　　　　运行命令 ls -l，你讲看到列出的 TEST 文件夹的权限信息是 drwxr-xr-x。<br>
 　　　　用户组被去除了写权限（其目录下的所有文件也如此）。<br>
+32 查看文件大小
+　　ls -l filename | awk '{ print $5 }' <br>
+　　du -sh filename
