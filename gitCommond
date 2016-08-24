@@ -1,0 +1,14 @@
+git提交代码
+
+git commit -m "提交信息" filename
+
+git获取最新代码
+git pull
+
+git上传
+
+git push
+
+git恢复修改
+
+git reset --hard

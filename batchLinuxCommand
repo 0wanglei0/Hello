@@ -65,3 +65,6 @@
 >> 按照CPU占用的情况显示占用量较大的进程   top -u 查看用户的CPU使用排名情况
 > *29. shutdown
 >> 关闭计算机   shutdown -f 重启
+  *30. 获取文件大小
+     ls -l rtg.kch | awk '{print $5}'
+     du filename
