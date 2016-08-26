@@ -15,3 +15,5 @@ and how to the change line
 [play well github readme.md](https://github.com/guodongxiaren/README "github readme edit")
 
 [install hbase phphbaseadmin](https://github.com/hivefans/phphbaseadmin)
+
+[package to exe file](http://www.cnblogs.com/icewee/articles/2073203.html "jar包转换exe")
