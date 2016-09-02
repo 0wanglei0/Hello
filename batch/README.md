@@ -119,6 +119,6 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 　　　　用户组被去除了写权限（其目录下的所有文件也如此）。<br>
 32 查看文件大小<br>
 　　ls -l filename | awk '{ print $5 }' <br>
-　　du -sh filename
+　　du -sh filename <br>
 33 数据库使用其他表结构创建指定的表<br>
     CREATE TABLE IF NOT EXISTS bl_ad_conv_log_20160829 LIKE bl_ad_conv_log_yyyymmdd;
