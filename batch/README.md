@@ -121,4 +121,6 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 　　ls -l filename | awk '{ print $5 }' <br>
 　　du -sh filename <br>
 33 数据库使用其他表结构创建指定的表<br>
-　　CREATE TABLE IF NOT EXISTS bl_ad_conv_log_20160829 LIKE bl_ad_conv_log_yyyymmdd;
+　　CREATE TABLE IF NOT EXISTS bl_ad_conv_log_20160829 LIKE bl_ad_conv_log_yyyymmdd;<br>
+34 输出时间戳<br>
+　　date + %s
