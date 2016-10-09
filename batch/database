@@ -1,6 +1,7 @@
 BLOB是一个二进制大对象，可以容纳可变数量的数据。有4种BLOB类型：TINYBLOB、BLOB、MEDIUMBLOB和LONGBLOB。它们只是可容纳值的最大长度不同。
 
-A binary large object that can hold a variable amount of binary data. The sorting and comparison of the values for these objects is performed in case-sensitive manner.
+A binary large object that can hold a variable amount of binary data.
+The sorting and comparison of the values for these objects is performed in case-sensitive manner.
 
 
 TINYBLOB
