@@ -18,8 +18,8 @@ public class Main_05 {
         Constructor[] declaredConstructors = recordC.getDeclaredConstructors();
         for(int i = 0; i < declaredConstructors.length; i++) {
             Constructor constructor = declaredConstructors[i];
-            if(constructor.isAnnotationPresent(Constructor_Annotation.class)) {
-                Constructor_Annotation ca = (Constructor_Annotation) constructor.getAnnotation(Constructor_Annotation.class);
+            if(constructor.isAnnotationPresent((Class<? extends Annotation>)ConstructorAnnotation.class)) {
+                ConstructorAnnotation ca = (ConstructorAnnotation) constructor.getAnnotation(ConstructorAnnotation.class);
                 System.out.println(ca.value());
             }
             Annotation[][] parameterAnnotations = constructor.getParameterAnnotations();
@@ -29,7 +29,7 @@ public class Main_05 {
                     System.out.println(" no add Annotation patameters");
                 } else {
                     for(int k = 0; k < length; k++) {
-                        Field_Method_Parameter_Annotation pa = (Field_Method_Parameter_Annotation) parameterAnnotations[j][k];
+                        FieldMethodParameterAnnotation pa = (FieldMethodParameterAnnotation) parameterAnnotations[j][k];
                         System.out.println("     " + pa.describe());
                         System.out.println("     " + pa.type());
                     }
@@ -43,8 +43,8 @@ public class Main_05 {
         Field[] declaredFields = recordC.getDeclaredFields();
         for(int i = 0; i < declaredFields.length; i++) {
             Field field = declaredFields[i];
-            if(field.isAnnotationPresent(Field_Method_Parameter_Annotation.class)) {
-                Field_Method_Parameter_Annotation fa = field.getAnnotation(Field_Method_Parameter_Annotation.class);
+            if(field.isAnnotationPresent(FieldMethodParameterAnnotation.class)) {
+                FieldMethodParameterAnnotation fa = field.getAnnotation(FieldMethodParameterAnnotation.class);
                 System.out.println("   " + fa.describe());
                 System.out.println("   " + fa.type());
             }
@@ -54,8 +54,8 @@ public class Main_05 {
         Method[] methods = recordC.getDeclaredMethods();
         for(int i = 0; i < methods.length; i++) {
             Method method = methods[i];
-            if(method.isAnnotationPresent(Field_Method_Parameter_Annotation.class)) {
-                Field_Method_Parameter_Annotation ma = method.getAnnotation(Field_Method_Parameter_Annotation.class);
+            if(method.isAnnotationPresent(FieldMethodParameterAnnotation.class)) {
+                FieldMethodParameterAnnotation ma = method.getAnnotation(FieldMethodParameterAnnotation.class);
                 System.out.println(ma.describe());
                 System.out.println(ma.type());
             }
@@ -66,7 +66,7 @@ public class Main_05 {
                     System.out.println("  no Annotation parameter");
                 } else {
                     for(int k = 0; k < length; k++) {
-                        Field_Method_Parameter_Annotation pa = (Field_Method_Parameter_Annotation) parameterAnnotation[j][k];
+                        FieldMethodParameterAnnotation pa = (FieldMethodParameterAnnotation) parameterAnnotation[j][k];
                         System.out.println("    " + pa.describe());
                         System.out.println("    " + pa.type());
                     }
