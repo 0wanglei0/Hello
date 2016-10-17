@@ -145,3 +145,8 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
   #git commit<br>
   #提交到远程<br>
   #git push<br>
+39. git初始化生成git工程  
+  git init 文件名  
+40. git添加g分支  
+  要先commit 才会生成初始的branch  master  
+  之后进行创建分支的动作  
