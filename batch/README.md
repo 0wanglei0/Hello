@@ -150,3 +150,5 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 40. git添加g分支  
   要先commit 才会生成初始的branch  master  
   之后进行创建分支的动作  
+41. git查看log  
+  git log -p 所有的差异点
