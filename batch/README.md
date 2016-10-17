@@ -131,17 +131,17 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 37. Integer类型比较<br>
 　　ObjectUtils.equals()<br>
 38. git冲突的解决<br>
-#提交本地的修正<br>
-#git commit FILE_NAME -m "xxxx"<br>
-#取最新<br>
-#git pull
-#打开冲突的文件<br>
-#找到 ====== 的地方<br>
-#判断保留和删除<br>
-#然后保存<br>
-#将冲突的文件重新加入到git中<br>
-#git add FILE_NAME<br>
-#再次cocmmit<br>
-#git commit<br>
-#提交到远程<br>
-#git push<br>
+  #提交本地的修正<br>
+  #git commit FILE_NAME -m "xxxx"<br>
+  #取最新<br>
+  #git pull
+  #打开冲突的文件<br>
+  #找到 ====== 的地方<br>
+  #判断保留和删除<br>
+  #然后保存<br>
+  #将冲突的文件重新加入到git中<br>
+  #git add FILE_NAME<br>
+  #再次cocmmit<br>
+  #git commit<br>
+  #提交到远程<br>
+  #git push<br>
