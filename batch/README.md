@@ -103,7 +103,7 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 30. netstat -tunlp | grep 端口号<br>
 　　查询端口占用 例 ：netstat -tunlp |grep 22
 
-31 文件赋予权限（权限为rwx）<br>
+31. 文件赋予权限（权限为rwx）<br>
 　　chmod 权限 文件名<br>
 　　chmod u+x 权限 文件名    u+x  当前用户    x   执行权限  <br>
 　　chmod ug+x 权限 文件名   ug+x 用户组用户<br>
@@ -117,31 +117,31 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
 　　　　　　chmod -R g-w TEST<br>
 　　　　运行命令 ls -l，你讲看到列出的 TEST 文件夹的权限信息是 drwxr-xr-x。<br>
 　　　　用户组被去除了写权限（其目录下的所有文件也如此）。<br>
-32 查看文件大小<br>
+32. 查看文件大小<br>
 　　ls -l filename | awk '{ print $5 }' <br>
 　　du -sh filename <br>
-33 数据库使用其他表结构创建指定的表<br>
+33. 数据库使用其他表结构创建指定的表<br>
 　　CREATE TABLE IF NOT EXISTS bl_ad_conv_log_20160829 LIKE bl_ad_conv_log_yyyymmdd;<br>
-34 输出时间戳<br>
+34. 输出时间戳<br>
 　　date + %s<br>
-35 解决代码提交冲突方法<br>
+35. 解决代码提交冲突方法<br>
 　　http://stackoverflow.com/questions/21559119/how-to-resolve-conflicts-in-egit<br>
-36 查找影响范围<br>
+36. 查找影响范围<br>
 　　ctrl + g<br>
-37 Integer类型比较<br>
+37. Integer类型比较<br>
 　　ObjectUtils.equals()<br>
-38 git冲突的解决<br>
-提交本地的修正<br>
-git commit FILE_NAME -m "xxxx"<br>
-取最新<br>
-git pull
-打开冲突的文件<br>
-找到 ====== 的地方<br>
-判断保留和删除<br>
-然后保存<br>
-将冲突的文件重新加入到git中<br>
-git add FILE_NAME<br>
-再次cocmmit<br>
-git commit<br>
-提交到远程<br>
-git push<br>
+38. git冲突的解决<br>
+#提交本地的修正<br>
+#git commit FILE_NAME -m "xxxx"<br>
+#取最新<br>
+#git pull
+#打开冲突的文件<br>
+#找到 ====== 的地方<br>
+#判断保留和删除<br>
+#然后保存<br>
+#将冲突的文件重新加入到git中<br>
+#git add FILE_NAME<br>
+#再次cocmmit<br>
+#git commit<br>
+#提交到远程<br>
+#git push<br>
