@@ -151,4 +151,5 @@ Ctrl + F 向前翻页   Ctrl + B 向后翻页
   要先commit 才会生成初始的branch  master  
   之后进行创建分支的动作  
 41. git查看log  
-  git log -p 所有的差异点
+  git log -p 所有的差异点<br>
+42. gz文件保留源文件的压缩命令：gzip -c origin_file > gzfile
