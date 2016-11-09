@@ -5,6 +5,9 @@ Hbase更新删除
 put 'table name','row','colunm',value
 删除
 delete 'table name','row','value'
+hbase表的数据清除方法
+truncate 'mark'
+truncate 'userlist_visit_history'
 
 KT 更新删除
 
