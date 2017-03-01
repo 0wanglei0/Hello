@@ -48,7 +48,7 @@ git ssh key 生成命令： ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”
 
 #### 深入学习方向
 
-http://www.cnblogs.com/huaxingtianxia/p/5724093.html(http://www.cnblogs.com/huaxingtianxia/p/5724093.html)  
+[http://www.cnblogs.com/huaxingtianxia/p/5724093.html](http://www.cnblogs.com/huaxingtianxia/p/5724093.html)  
 * 解读jdk  [http://www.cnblogs.com/qingmaple/p/6076296.html](http://www.cnblogs.com/qingmaple/p/6076296.html)  
 
 
