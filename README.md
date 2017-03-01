@@ -38,9 +38,9 @@ how to make refs in README.MD
 
 	* 第一  读jdk  
 	
-	 * 第二  经常编写代码 做实例  
+	* 第二  经常编写代码 做实例  
 	 
-	 * 第三   系统分析师 整合 记录 10000小时  
+	* 第三   系统分析师 整合 记录 10000小时  
 	 	1.java基础 java高级   
 		2 http协议，servlet，structs框架的思想。  
 		3 spring 深入理解ioc aop 事务控制  
