@@ -29,3 +29,27 @@ how to make refs in README.MD
 	* 开闭原则  
 		 前面5条的总纲，遵守就符合了开闭原则，但是不强求，不能强制的刻意的为了迎合规则进行编程，  
 		 职责单一，保护老子给予的东西，老子生的儿子可以不一样 儿子不会影响老子，接口要简单，降低耦合
+
+
+#### 深入学习方向
+
+
+* 解读jdk[http://www.cnblogs.com/qingmaple/p/6076296.html](http://www.cnblogs.com/qingmaple/p/6076296.html)  
+
+	* 第一  读jdk  
+	
+	 * 第二  经常编写代码 做实例  
+	 
+	 * 第三   系统分析师 整合 记录 10000小时  
+	 	1.java基础 java高级   
+		2 http协议，servlet，structs框架的思想。  
+		3 spring 深入理解ioc aop 事务控制  
+		4 Hibernate mybatis  
+		5 jvm,堆栈，垃圾回收  
+		6 设计模式（23中设计模式），清楚的知道应用场景  
+		7 xml json  
+		8 数据库 oracle（function produce package）块,区,段,表-rac  
+		9 数据库 mysql （function produce）- 分库分表（mysql cluster）等  
+		10 java方向 meavn nginx tomcat  
+		11 负载均衡（nginx lvs等）    
+		12 缓存db redis mem等  
