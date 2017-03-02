@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/jquery/jquery-1.11.1.min.js">
+</script>
+<script>
+function test() {
+var flag = $("#first1").is(':checked');
+if (flag == true) {
+$("#test1").html("<select>这是标题<option>1</option><option>2</option></select>");
+} else {
+  if ($("#test1").html()) {
+    $("#test1").html("");
+  }
+}
+}
+</script>
+</head>
+<body>
+<input type="checkbox" value="first" id="first1" onclick="test()"/><label>first</label>
+<div id="test1"></div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+判断checkbox选中[http://www.cnblogs.com/qqzy168/archive/2013/03/11/2953492.html](http://www.cnblogs.com/qqzy168/archive/2013/03/11/2953492.html)
+取得当前下拉框的值 [http://www.cnblogs.com/itdream/archive/2012/05/31/2528345.html](http://www.cnblogs.com/itdream/archive/2012/05/31/2528345.html)
