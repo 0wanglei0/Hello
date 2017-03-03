@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/jquery/jquery-1.11.1.min.js">
+</script>
+<script>
+function addFun() {
+  var options=$("#test option:selected");
+  $("#test1").append("已选：" + options.text() + "</br>");
+}
+</script>
+</head>
+<body>
+<select id="test"><option>1</option><option>2</option>
+<option>3</option><option>4</option>
+<option>5</option><option>6</option></select>
+<button id="add" onclick="addFun()">添加</button></br>
+<label id="test1"></label >
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html>
+<head>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+    var city=[
+        ["北京","天津","上海","重庆"],
+        ["南京","苏州","南通","常州"],
+        ["福州","福安","龙岩","南平"],
+        ["广州","潮阳","潮州","澄海"],
+        ["兰州","白银","定西","敦煌"]
+    ];
+    function getCity(){
+        var sltProvince=$("#province");
+        var sltCity=$("#city");
+        $("#city option").remove();
+        sltCity.append("<option value='0'>" + "请选择所在城市" + "</option>");
+        if (sltProvince.get(0).selectedIndex == 0) {
+            return;
+        }
+
+        var provinceCity=city[sltProvince.get(0).selectedIndex - 1];
+        for(var i=0;i<provinceCity.length;i++){
+            sltCity.append("<option value='"+provinceCity[i]+"'>"+provinceCity[i]+"</option>");
+        }
+    }
+
+    function getChosed(){
+        var arr=new Array();
+        for(var i = 0; i < $("#chosed").children("label").length; i++) {
+            arr[i]=$("#chosed").children("label").eq(i).text();
+        }
+        return arr;
+    }
+
+    function chooseCity() {
+        var chosed=getChosed();
+        var province=$("#province option:selected");
+        var city=$("#city option:selected");
+        var label1 = province.val() + " " + city.val();
+
+        if (city.val() == 0 && province.val() == 0) {
+            alert("请选择省市");
+            return;
+        }
+
+        if (city.val() == 0) {
+            label1=province.val();
+        }
+
+        for (var j=0;j<chosed.length;j++) {
+            if (label1==chosed[j]) {
+                alert("你选择的省市结构已经存在了！");
+                return;
+            }
+        }
+        $("#chosed").append("<input type='checkbox' checked onclick='cancelChosed(this)'/>");
+        $("#chosed").append("<label>" + label1 +　"</label></br>");
+    }
+
+    function cancelChosed(e) {
+        $('#chosed :checkbox:not(:checked)').next().next().remove();
+        $('#chosed :checkbox:not(:checked)').next().remove();
+        $('#chosed :checkbox:not(:checked)').remove();
+    }
+</script>
+</head>
+<body>
+  <select id="province" onChange="getCity()">
+    <option VALUE="0">请选择所在省份</option>
+    <option VALUE="直辖市">直辖市</option>
+    <option VALUE="江苏省">江苏省</option>
+    <option VALUE="福建省">福建省</option>
+    <option VALUE="广东省">广东省</option>
+    <option VALUE="甘肃省">甘肃省</option>
+  </select>
+  <select id="city">
+    <option VALUE="0">请选择所在城市</option>
+  </select>
+  <button id="choose" onclick="chooseCity()">添加</button>
+  </br>
+  <label>已选城市：</label>
+  <div id="chosed"></div>
+</body>
+</html>
