@@ -13,3 +13,6 @@ $("#upload_exist_border_middle").children("img").length
 
 以后可能会用到关于jq的一些函数
 [http://blog.csdn.net/woshifeixingzhuiyue/article/details/11969805](http://blog.csdn.net/woshifeixingzhuiyue/article/details/11969805)
+
+下拉框相关
+[http://blog.csdn.net/inuyasha1121/article/details/42919739](http://blog.csdn.net/inuyasha1121/article/details/42919739)
