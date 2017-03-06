@@ -2,6 +2,7 @@
 <head>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
 <script>
+    // 定义城市的数组
     var city=[
         ["北京","天津","上海","重庆"],
         ["南京","苏州","南通","常州"],
@@ -9,57 +10,84 @@
         ["广州","潮阳","潮州","澄海"],
         ["兰州","白银","定西","敦煌"]
     ];
+    // 选择省份，初始化城市下拉框
     function getCity(){
+        // 获得省的下拉框
         var sltProvince=$("#province");
+        // 获得市的下拉框
         var sltCity=$("#city");
+        // 初始化市的下拉框
         $("#city option").remove();
         sltCity.append("<option value='0'>" + "请选择所在城市" + "</option>");
+        // 如果省被选中的是提示信息，什么都不做，结束方法
         if (sltProvince.get(0).selectedIndex == 0) {
             return;
         }
 
+        // 如果选择的是有效选项，从city数组中获取城市的选项
         var provinceCity=city[sltProvince.get(0).selectedIndex - 1];
+        // 把每条城市信息添加到option中
         for(var i=0;i<provinceCity.length;i++){
             sltCity.append("<option value='"+provinceCity[i]+"'>"+provinceCity[i]+"</option>");
         }
     }
 
+    // 获取显示区域div的内容
     function getChosed(){
+        // 定义数组
         var arr=new Array();
+        // 在id为chosed的div中找所有label标签，然后把每个label中的内容当成数组的一个元素放到数组中
         for(var i = 0; i < $("#chosed").children("label").length; i++) {
             arr[i]=$("#chosed").children("label").eq(i).text();
         }
+        // 返回数组
         return arr;
     }
 
+    // 点击添加时事件
     function chooseCity() {
+        // 获取显示区域div的内容  上面的那个方法  这个是一个数组  在下面会用到
         var chosed=getChosed();
+        // 获取被选中的省份
         var province=$("#province option:selected");
+        // 获取被选中的城市
         var city=$("#city option:selected");
+        // 将省市拼接成一个变量 变量名随意 这个是要显示在div中的内容
         var label1 = province.val() + " " + city.val();
 
+        // 如果省和城市都没有选择，再点击添加出现提示信息
         if (city.val() == 0 && province.val() == 0) {
             alert("请选择省市");
             return;
         }
 
+        // 如果没有选择城市，那么div中显示的内容就只有省份
         if (city.val() == 0) {
             label1=province.val();
         }
 
+        // 用这个方法里最开始取到的chosed，就是这个var chosed=getChosed()
+        // 把label1和数组里的每个元素进行比较  如果有完全一致的就弹alert，然后方法结束
         for (var j=0;j<chosed.length;j++) {
             if (label1==chosed[j]) {
                 alert("你选择的省市结构已经存在了！");
                 return;
             }
         }
+
+        // 每显示一个选中的省市，要内容前画一个checkbox
         $("#chosed").append("<input type='checkbox' checked onclick='cancelChosed(this)'/>");
+        // 如果label1，也就是显示的内容，有意义（实际上就是前面的判断都没有导致方法结束），就显示在div中
         $("#chosed").append("<label>" + label1 +　"</label></br>");
     }
 
+    // 当checkbox未选中时执行下面的方法，下面方法的语句的顺序不能变 变了的话会找不到对的元素
     function cancelChosed(e) {
+        // 删除checkbox的下一个的下一个元素   在我这里是一个<br> 换行用的
         $('#chosed :checkbox:not(:checked)').next().next().remove();
+        // 删除checkbox的下一个元素   在我这里是之前选中的省市信息
         $('#chosed :checkbox:not(:checked)').next().remove();
+        // 删除checkbox
         $('#chosed :checkbox:not(:checked)').remove();
     }
 </script>

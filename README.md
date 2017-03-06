@@ -46,11 +46,10 @@ git ssh key 生成命令： ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”
 		 职责单一，保护老子给予的东西，老子生的儿子可以不一样 儿子不会影响老子，接口要简单，降低耦合
 
 
-#### 深入学习方向
+#### 深入学习方向  
 
 [http://www.cnblogs.com/huaxingtianxia/p/5724093.html](http://www.cnblogs.com/huaxingtianxia/p/5724093.html)  
 * 解读jdk  [http://www.cnblogs.com/qingmaple/p/6076296.html](http://www.cnblogs.com/qingmaple/p/6076296.html)  
-
 
 
 	* 第一  读jdk  
@@ -70,3 +69,12 @@ git ssh key 生成命令： ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”
 		10 java方向 meavn nginx tomcat  
 		11 负载均衡（nginx lvs等）    
 		12 缓存db redis mem等  
+
+#### 数据库  
+
+[数据库锁相关](http://blog.csdn.net/samjustin1/article/details/52210125)  
+[Mysql lock](http://www.jb51.net/article/58039.htm)  
+感觉就是锁就是属性  通过事物实现  mysql  
+但是貌似sqlserver的锁是增删改查的时候加的  
+但是也是通过事物判断的(holdlock意思是加共享锁，直到事物结束才释放)  
+sqlserver : begin tran表示开始事务， commit tran表示提交事务，rollback tran表示回滚事物  
