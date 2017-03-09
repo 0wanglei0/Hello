@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class Muster {
 
     public static void main(String[] args) {
-        Collection<String> list = new ArrayList();
+        Collection<String> list = new ArrayList<String>();
         list.add("a");
         list.add("b");
         list.add("c");

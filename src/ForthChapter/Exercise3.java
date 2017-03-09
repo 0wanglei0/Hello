@@ -17,8 +17,8 @@ public class Exercise3 {
         map.put(emp2.getId(), emp.getName());
         map.put(emp3.getId(), emp3.getName());
         map.put(emp4.getId(), emp4.getName());
-        Set set = map.keySet();
-        Iterator it = set.iterator();
+        Set<String> set = map.keySet();
+        Iterator<String> it = set.iterator();
         while(it.hasNext()) {
             String str = (String)it.next();
             String name = (String)map.get(str);

@@ -23,4 +23,12 @@
 		(14) java web(c/s)  
 				html HyperText Markup Language 超文本标记语言  
 				cgi 通用网关接口  
+## 第二章 一切都是对象  
+
+#### 2.1 引用  
+
+		(1) String s 这是一个引用，但不是对象，对象需要初始化  
+		(2) 对象存储位置 寄存器、堆栈、堆、常量存储、非RAM存储(存储在程序之外的，应该指的是PI之类的定义吧)  
+		(3) 基本类型 高精度数字 BigInteger、BigDecimal并没有对应的基本类型(详细信息请见JDK 啊哈哈哈哈哈哈  [手动笑哭])  
+		(4) java 数组定义 3种方式 summary文件夹中summary文件
 		

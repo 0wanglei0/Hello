@@ -8,7 +8,7 @@ import java.util.Set;
 public class Exercise2 {
 
     public static void main(String[] args) {
-        Set set = new HashSet();
+        Set<String> set = new HashSet<String>();
         set.add("A");
         set.add("b");
         set.add("c");

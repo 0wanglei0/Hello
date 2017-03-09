@@ -19,7 +19,7 @@ public class MapText {
         map.put(emp3.getE_id(), emp3.getE_name());
         map.put(emp4.getE_id(), emp4.getE_name());
         Set<String> set = map.keySet();
-        Iterator it = set.iterator();
+        Iterator<String> it = set.iterator();
         System.out.println("Class HashMap implements Map, no sequence : ");
         while(it.hasNext()) {
             String str = (String)it.next();
