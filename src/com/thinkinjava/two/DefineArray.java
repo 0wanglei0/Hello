@@ -1,4 +1,4 @@
-package ThinkInJava;
+package com.thinkinjava.two;
 
 public class DefineArray {
 
