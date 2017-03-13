@@ -1,4 +1,6 @@
 判断checkbox选中[http://www.cnblogs.com/qqzy168/archive/2013/03/11/2953492.html](http://www.cnblogs.com/qqzy168/archive/2013/03/11/2953492.html)  
+获取所有选中的值 [http://blog.csdn.net/zzh87615/article/details/5746480](http://blog.csdn.net/zzh87615/article/details/5746480)
+
 取得当前下拉框的值 [http://www.cnblogs.com/itdream/archive/2012/05/31/2528345.html](http://www.cnblogs.com/itdream/archive/2012/05/31/2528345.html)  
 
 如何用jquery获得option的索引值index？  
@@ -15,4 +17,9 @@ $("#upload_exist_border_middle").children("img").length
 [http://blog.csdn.net/woshifeixingzhuiyue/article/details/11969805](http://blog.csdn.net/woshifeixingzhuiyue/article/details/11969805)  
 
 下拉框相关  
-[http://blog.csdn.net/inuyasha1121/article/details/42919739](http://blog.csdn.net/inuyasha1121/article/details/42919739)   
+[http://blog.csdn.net/inuyasha1121/article/details/42919739](http://blog.csdn.net/inuyasha1121/article/details/42919739)  
+
+basic.html文件夹需要easyui的类库  
+
+jQuery 学习  
+[jQuery 学习](http://learn.jquery.com/)  

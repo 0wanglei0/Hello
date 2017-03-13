@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Basic Combo - jQuery EasyUI Demo</title>
+<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<script type="text/javascript" src="../../jquery.min.js"></script>
+<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+  <h2>Basic Combo</h2>
+  <p>Click the right arrow button to show drop down panel that can be filled with any content.</p>
+  <div style="margin: 20px 0"></div>
+  <select id="cc" style="width: 150px"></select>
+  <div id="sp">
+    <div style="color: #99BBE8; background: #fafafa; padding: 5px;">Select a language</div>
+    <div style="padding: 10px">
+      <input type="checkbox" name="lang" value="01"><span>Java</span><br />
+      <input type="checkbox" name="lang" value="02"><span>C#</span><br />
+      <input type="checkbox" name="lang" value="03"><span>Ruby</span><br />
+      <input type="checkbox" name="lang" value="04"><span>Basic</span><br />
+      <input type="checkbox" name="lang" value="05"><span>Fortran</span>
+    </div>
+  </div>
+  <div id="test"></div>
+  <script type="text/javascript">
+            $(function() {
+                $('#cc').combo({
+                    required: true,
+                    editable: false
+                });
+                $('#sp').appendTo($('#cc').combo('panel'));
+
+                // 下拉框内checkbox点击事件
+                $('#sp input').click(function() {
+                    // combo中checkbox选中的情况
+                    if ($(this).is(':checked')) {
+                        var v = $(this).val();
+                        var s = $(this).next('span').text();
+                        // 获取选中的checkbox的值显示在combo中
+                        getChosed();
+                        // 动态添加div中显示信息
+                        $("#test").append("<input type='checkbox' value='" + v + "' checked><span>" + s + "</span><br/>");
+                        return;
+                    }
+
+                    // combo中checkbox取消的情况
+                    // 获取选中的checkbox的值显示在combo中
+                    getChosed();
+                    // 删除下面div中的显示信息
+                    for (var k = 0; k < $("#test").find("span").length; k++) {
+                        var direct = $("#test").find("span").eq(k).prev();
+                        if (direct.val() == $(this).val()) {
+                            direct.attr("checked", false);
+                            // 删除元素
+                            cancelChosed(direct);
+                        }
+                    }
+                });
+
+                // 对于动态添加的元素添加点击事件  （知识点: 直接使用.click不可用  无法获得元素）
+                $(document).on("click", "#test input", function() {
+                    $(this).attr("checked", false);
+                    // 设置combo内的checkbox未选中状态
+                    for (var l = 0; l < $("#sp").find("input").length; l++) {
+                        var redirect = $("#sp").find("input").eq(l);
+                        if (redirect.val() == $(this).val()) {
+                            redirect.attr("checked", false);
+                            // 重新获取选中的checkbox的值显示在combo中
+                            getChosed();
+                        }
+                    }
+                    // 删除div中信息
+                    cancelChosed($(this));
+                });
+            });
+
+            // 获取选中的checkbox的值显示在combo中
+            function getChosed() {
+                var text = "";
+                var arr = new Array();
+                var j = 0;
+                // 将选中状态的checkbox后面的span的值存入数组
+                for (var i = 0; i < $("#sp input").length; i++) {
+                    if ($("#sp input").eq(i).is(":checked")) {
+                        arr[j] = $("#sp input").eq(i).next('span').text();
+                        j++;
+                    }
+                }
+                // 拼接 需要显示在combo中的字符串
+                if (arr.length > 0) {
+                    for (var i = 0; i < arr.length - 1; i++) {
+                        text += arr[i] + ',';
+                    }
+                    text += arr[arr.length - 1];
+                }
+                $('#cc').combo('setText', text);
+            }
+
+            // 删除div中信息
+            function cancelChosed(e) {
+                $('#test :checkbox:not(:checked)').next().next().remove();
+                $('#test :checkbox:not(:checked)').next().remove();
+                $('#test :checkbox:not(:checked)').remove();
+            }
+        </script>
+</body>
+</html>
