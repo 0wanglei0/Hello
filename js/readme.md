@@ -23,3 +23,10 @@ basic.html文件夹需要easyui的类库
 
 jQuery 学习  
 [jQuery 学习](http://learn.jquery.com/)  
+
+
+[取json长度](http://blog.csdn.net/chenlong220192/article/details/46622031)  
+
+获取json的key 和 value  
+	json文件中： {“name”: "test", "password": "1"}  
+	获取时：json[i].key/json[i].value  
