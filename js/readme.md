@@ -30,3 +30,5 @@ jQuery 学习
 获取json的key 和 value  
 	json文件中： {“name”: "test", "password": "1"}  
 	获取时：json[i].key/json[i].value  
+
+[js call/apply/bind method to use](http://www.admin10000.com/document/6711.html)
