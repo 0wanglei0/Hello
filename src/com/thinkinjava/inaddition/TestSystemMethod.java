@@ -1,4 +1,4 @@
-package com.thinkinjava.two;
+package com.thinkinjava.inaddition;
 
 public class TestSystemMethod {
 

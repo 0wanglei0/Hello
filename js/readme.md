@@ -31,4 +31,7 @@ jQuery 学习
 	json文件中： {“name”: "test", "password": "1"}  
 	获取时：json[i].key/json[i].value  
 
-[js call/apply/bind method to use](http://www.admin10000.com/document/6711.html)
+[js call/apply/bind method to use](http://www.admin10000.com/document/6711.html)  
+
+[this/$(this) $(document)/document的区别](http://www.cnblogs.com/tekkaman/archive/2013/02/13/2910674.html)  
+
