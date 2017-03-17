@@ -128,15 +128,12 @@
 		
 	    function updateData(field, fieldValue) {
 	    	var url = 'datagrid_data.json';
-	    	var jsonObj = new Array();
 			$.getJSON(url, function (json, textStatus) {  
-		        var products = json.rows;
+		        
 		        //alert(name);
-		        for (var i = 0; i < products.length; i++) {
-		            var cur_product = products[i];
-		            if (cur_product.field == field) {
-		            	products[i].field = fieldValue;
-		            }
+		        for (var i = 0; i < json.rows.length; i++) {
+		            var cur_product = json.rows[i];
+		            cur_product[field] = fieldValue;
 		        }
 			});
 	    }
