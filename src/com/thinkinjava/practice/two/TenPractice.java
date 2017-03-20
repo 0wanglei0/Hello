@@ -2,6 +2,7 @@ package com.thinkinjava.practice.two;
 
 /**
  * 打印命令行参数
+ * 执行时添加参数
  *
  * @author wang_lei
  *
