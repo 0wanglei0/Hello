@@ -35,3 +35,7 @@ jQuery 学习
 
 [this/$(this) $(document)/document的区别](http://www.cnblogs.com/tekkaman/archive/2013/02/13/2910674.html)  
 
+查找元素  
+使用页面：[http://www.daodaoqu.com.cn/dms/d_w/ReceptionSys.html#](http://www.daodaoqu.com.cn/dms/d_w/ReceptionSys.html#)  
+$(target).closest('tr.datagrid-row').find("td[field='id'] > div").text()  
+
