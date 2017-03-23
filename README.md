@@ -20,7 +20,7 @@ and how to the change line
 git ssh key 生成命令： ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”  
 
 github 添加图片 
-![image](图片全路径)  
+![image]()  图片全路径
 [http://blog.chinaunix.net/uid-26495963-id-3367377.html](http://blog.chinaunix.net/uid-26495963-id-3367377.html)  
 
 #### 设计模式
