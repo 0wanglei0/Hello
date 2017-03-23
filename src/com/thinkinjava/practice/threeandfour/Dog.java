@@ -1,4 +1,4 @@
-package com.thinkinjava.practice.three;
+package com.thinkinjava.practice.threeandfour;
 
 public class Dog {
 

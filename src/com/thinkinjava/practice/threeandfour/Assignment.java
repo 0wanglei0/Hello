@@ -1,4 +1,4 @@
-package com.thinkinjava.practice.three;
+package com.thinkinjava.practice.threeandfour;
 
 /**
  * 对象引用(赋值)

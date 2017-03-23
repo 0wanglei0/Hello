@@ -19,6 +19,10 @@ and how to the change line
 
 git ssh key 生成命令： ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”  
 
+github 添加图片 
+![image](图片全路径)  
+[http://blog.chinaunix.net/uid-26495963-id-3367377.html](http://blog.chinaunix.net/uid-26495963-id-3367377.html)  
+
 #### 设计模式
 
 * 设计模式的6个原则（根本在于高内聚低耦合、感觉都是为了降低耦合，降低各个类之间的关联度，避免互相影响）
@@ -78,3 +82,5 @@ git ssh key 生成命令： ssh-keygen -t rsa -C “haiyan.xu.vip@gmail.com”
 但是貌似sqlserver的锁是增删改查的时候加的  
 但是也是通过事物判断的(holdlock意思是加共享锁，直到事物结束才释放)  
 sqlserver : begin tran表示开始事务， commit tran表示提交事务，rollback tran表示回滚事物  
+
+
