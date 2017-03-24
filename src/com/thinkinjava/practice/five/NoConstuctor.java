@@ -1,4 +1,4 @@
-package com.thinkinjava.practice.Five;
+package com.thinkinjava.practice.five;
 
 
 /**
