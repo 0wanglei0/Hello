@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>账目说明</title>
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/demo/demo.css">
+	<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="http://www.jeasyui.net/Public/js/easyui/jquery.easyui.min.js"></script>
+	<style type="text/css">
+		table {border:1px solid #F00; width:100%}
+		.worktimeTable {border:0px;}
+		.worktimeTable td {
+			text-align:center;
+		}
+		.bt0 {
+			text-align:center;
+		}
+	</style>
+	<script>
+		function data(){  
+		var str = "[{'ename':'tom','salary':'3500','age':'25'},{'ename':'jphn','salary':'3800','age':'25'},{'ename':'mary','salary':'3600','age':'25'}]";
+			var jsonObject = eval('(' + str + ')');
+			var tbody = $('.worktimeTable tbody');
+			for ( var i = 0; i < jsonObject.length; i++) {
+				var tr = $("<tr></tr>");
+				tr.appendTo(tbody);
+				var tdcode = $("<td style='width:350px'>" + jsonObject[i].ename + "</td>");
+				var tdname = $("<td colspan='2' style='width:50px'>" + jsonObject[i].salary + "</td>");
+				var tdsalary = $("<td>" + jsonObject[i].age + "</td>");
+				tdcode.appendTo(tr);
+				tdname.appendTo(tr);
+				tdsalary.appendTo(tr);
+			}
+		}
+		$(function() {
+			data()
+		});
+	</script>
+</head>
+<body>
+<table cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="w" colspan="4" align="center" style=" font-size:26px">车辆维修施工单</td>
+                    </tr>
+                    <tr>
+                        <td>底盘识别号</td>
+                        <td><span id="dp">2546787Ad546</span></td>
+                        <td>品牌</td>
+                        <td><span id="brand">大众</span></td>
+                    </tr>
+                   <tr>
+                        <td>工单号</td>
+                        <td><span id="">2546787Ad546</span></td>
+                        <td>车系</td>
+                        <td><span id="">大众</span></td>
+                    </tr>
+                    <tr>
+                        <td>车型</td>
+                        <td><span id="dp">2546787Ad546</span></td>
+                        <td>里程</td>
+                        <td><span id="brand">大众</span></td>
+                    </tr>
+                    <tr>
+                        <td>颜色</td>
+                        <td><span id="dp">2546787Ad546</span></td>
+                        <td>车牌号</td>
+                        <td><span id="brand">大众</span></td>
+                    </tr>
+                    <tr>
+                        <td>进厂时间</td>
+                        <td><span id="dp">2546787Ad546</span></td>
+                        <td>业务类别</td>
+                        <td><span id="brand">大众</span></td>
+                    </tr>
+                    <tr>
+                        <td>油表状态</td>
+                        <td><span id="dp">2546787Ad546</span></td>
+                        <td>主修员</td>
+                        <td><span id="brand">大众</span></td>
+                    </tr>
+                    <tr>
+                        <td class=" bt0">备注</td>
+                        <td class="bt0"><span id="dp">2546787Ad546</span></td>
+                        <td class=" bt0">客户陈述</td>
+                        <td class="bt0"><span id="brand">大众</span></td>
+                    </tr>
+                    <tr>
+                        <td class="w" colspan="4" align="center" style=" font-size:15px">工时信息</td>
+                    </tr>
+                    <tr>
+                        <td class=" bt0">代码</td>
+                        <td class="bt0" colspan="2"><span id="dp">名称</span></td>
+                        <td class=" bt0">工时金额</td>
+                    </tr>
+                    <tr ><td colspan="4">
+                        <table class="worktimeTable">
+                        <tbody></tbody>
+                        <tr><td></td></tr>
+                        </table></td>
+                    </tr>
+                    <tr>
+                        <td class="w" colspan="4" align="center" style=" font-size:15px">工时信息</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+</table>
+</body>
+</html>

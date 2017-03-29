@@ -104,3 +104,22 @@
 		Random rand =new Random(47);  
 		//实际上47并没有作用，起源数字 因为在random函数中  
 		//必须输入一个数字作为种子。如果不输入的话，产生的随机数永远是47。具体的可以参见random函数。  
+
+## 第六章 访问权限控制
+
+	java环境变量 CLASSPATH  
+		新建系统变量JAVA_HOME 和CLASSPATH  
+		变量名：JAVA_HOME  
+	变量值：C:\Program Files\Java\jdk1.7.0  
+	变量名：CLASSPATH  
+	变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;  
+		选择“系统变量”中变量名为“Path”的环境变量，双击该变量，把JDK安装路径中bin目录的绝对路径，  
+		添加到Path变量的值中，并使用半角的分号和已有的路径进行分隔。  
+				变量名：Path  
+		 变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;  
+		 这是java的环境配置，配置完成后直接启动eclipse，它会自动完成java环境的配置  
+
+	private protected public 包访问权限  
+	单例模式
+		class Singleton { private Singleton() {} public Singleton getSingleton() {return new Singleton();}}
+		public class UseSingleton { SIngleton han = Singleton.getSingleton();}

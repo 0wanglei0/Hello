@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>门店管理</title>
+	<script type="text/javascript" src="w_js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="w_js/jquery.easyui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="w_css/themes/metro/easyui.css">
+    <link rel="stylesheet" type="text/css" href="w_css/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="w_css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="w_css/myeasyui.css">
+	<style type="text/css">
+		.panel-header, .panel-body{ border:1px solid #ccc; border-top:0px}
+		.datagrid-btable tr{height:50px; }
+		.search .l-btn-text{line-height:20px; vertical-align: middle }
+		.dialog-button{ text-align:center}
+		.easyui-linkbutton2:hover{ padding:5px 10px}
+		#tt{ max-height:360px; overflow:scroll}
+		.fitem{width: 100%; height:36px}
+
+	</style>
+	<script>
+		$(function(){
+			$("#cc2").combobox({
+				valueField: 'id',
+				textField: 'province',
+				prompt:'选择省份',
+				url: '../d_m/data3.php',
+				onSelect: function(rec){
+					var url = '../d_m/data4.php?id='+rec.id;
+					$("#cc3").combobox({
+						url: url,				
+					});
+				},
+				editable:false 
+			});
+			$("#cc3").combobox({
+				valueField:'id',
+				textField:'city_name',
+				prompt:'选择城市',
+				url: '../d_m/data4.php',
+				editable:false 
+			});
+			
+		});
+	</script>
+</head>
+<body>
+
+	<!---工具----->
+	<div id="toolbar" style=" margin-bottom:20px" class="page-btn">
+        <a href="#" class=" easyui-linkbutton" iconCls="icon-add" plain="true" onClick="newStore()">新增</a>
+        <a href="#" class=" easyui-linkbutton" iconCls="icon-edit" plain="true" onClick="editStore()">修改</a>
+        <a href="#" class=" easyui-linkbutton" iconCls="icon-remove" plain="true" onClick="destroyStore()">删除</a>
+        <a href="#" class=" easyui-linkbutton" iconCls="icon-edit" plain="true" onClick="editRole()">角色权限信息</a>
+    </div>
+
+	<!---查询---->
+	<div id="tb" style="padding:3px">
+        <input id="cc" class="easyui-combobox" name="mendian" data-options="valueField:'id',textField:'name',url:'../d_m/data2.php',prompt:'门店类型'">
+        <input id="cc2" class="easyui-combobox" >
+		<input id="cc3" class="easyui-combobox" >
+        <input id="other" style="line-height:30px; height:30px ;border:1px solid #ccc; width:240px" placeholder="门店名称，管理员手机号.." >
+        
+        <a href="#" class="easyui-linkbutton search" plain="true" onClick="doSearch()" >搜索</a>
+    </div>
+	<!---表格--->
+	<table id="dg" class="easyui-datagrid" style="width:100%;height:600px"
+		url="../d_m/data5.php" fitColumns="true" 
+		title="" iconCls="icon-save" singleSelect="true"
+		rownumbers="true" pagination="true" striped="true" data-options="pageSize: '10'">
+        <thead>
+            <tr>
+            	<th field="Id"  checkbox="true" width="50">
+                <th field="num" width="80">门店编号</th>
+                <th field="name" width="80">门店名称</th>
+                <th field="province" width="80">省份</th>
+                <th field="city" width="80">城市</th>
+                <th field="admin_name" width="80">管理员姓名</th>
+                <th field="admin_phone" width="150">管理员手机号</th>
+                <th field="address" width="180">地址</th>
+                <th field="type" width="80">门店类型</th>
+                <th field="createtime" width="180">创建时间</th>
+                <th field="uname" width="80">操作人</th>  
+            </tr>
+        </thead>
+    </table>
+	<!---弹框--->
+    <div id="dlg" class="easyui-dialog" style="width:700px;height:310px;padding:10px 20px" closed="true" buttons="#dlg-buttons">
+        <form id="fm" method="post">
+        	<div class="fitem">
+                <label>门店名称:</label>
+                <input name="mdname" class="easyui-validatebox" required></input>
+            </div>
+           <div class="fitem">
+                <label>管理员姓名:</label>
+              	<input id="glyname" name="glyname" class="easyui-validatebox"></input>
+            </div>
+            <div class="fitem">
+                <label>门店编号:</label>
+                <input name="mdno" id="mdno" class="easyui-validatebox easyui-numberbox" required></input>
+            </div>
+            <div class="fitem">
+                <label>管理员手机号:</label>
+                <input name="glytel" class="easyui-validatebox" data-options="validType:'phoneNum'"required ></input>
+            </div>
+            <div class="fitem">
+                <label>所在省份:</label>
+              	<input name="sheng" id="sheng" class="easyui-validatebox" ></input>
+            </div>
+            <div class="fitem">
+                <label>门店类型:</label>
+              	<input name="mdtype" id="mdtype" class="easyui-validatebox" ></input>
+            </div>
+            <div class="fitem">
+                <label>所在城市:</label>
+              	<input name="shi" id="shi" class="easyui-validatebox"  ></input>
+            </div>
+            <div class="fitem">
+                <label>备注:</label>
+                <input name="beizhu" style=" height:70px" class="easyui-validatebox"></input>
+                
+            </div>
+            <div class="fitem">
+                <label>门店地址:</label>
+                <input name="address" class="easyui-validatebox" required></input>
+            </div>
+        </form>
+    </div>
+    <div id="dlg2" class="easyui-dialog" style="width:700px;height:520px; padding:10px 20px" closed="true" buttons="#dlg-buttons">
+        <form id="fm" method="post">
+        	<div class="fitem">
+                <label>用户名:</label>
+                <input name="username" class="easyui-validatebox" readonly></input>
+            </div>
+           <div class="btn-group" role="group" >
+              <button type="button" class="btn btn-default">前台接待</button>
+              <button type="button" class="btn btn-default">车间管理</button>
+              <button type="button" class="btn btn-default">备件货品</button>
+              <button type="button" class="btn btn-default">财务管理</button>
+              <button type="button" class="btn btn-default">基础资料</button>
+              <button type="button" class="btn btn-default">数据维护</button>
+            </div>
+            <ul id="tt" class="easyui-tree"
+                url="data/tree_data.json"
+                checkbox="true">
+            </ul>
+        </form>
+    </div>
+    <div id="dlg-buttons">
+        <a href="#" class="easyui-linkbutton easyui-linkbutton2" iconCls="icon-ok" onClick="saveRole()">保存</a>
+        <a href="#" class="easyui-linkbutton easyui-linkbutton2" iconCls="icon-cancel" onClick="javascript:$('#dlg').dialog('close')">取消</a>
+    </div>
+<script>
+//新增
+function newStore(){
+	$('#dlg').dialog('open').dialog('setTitle','新增门店');
+	$('#fm').form('clear');
+	getAddJson();
+	
+	url = '../d_m/data7.php'; //保存提交到哪里
+}
+//修改
+function editStore(){
+	var row = $('#dg').datagrid('getSelected');
+	if(row){
+		$("#dlg").dialog("open").dialog('setTitle', '编辑门店');
+		url = "../d_m/data8.php?uid="+row.num;	
+		$("#fm").form("load", url);
+		$('#mdno').attr('readonly',true);
+		r=row.num;
+		getEditJson(r);
+		
+	}else {
+		$.messager.show({
+			title:'提示',
+			msg:'请选择一条数据',
+			timeout:500,
+			showType:'fade',
+			style:{
+				top:'400',
+				left:'400',
+			}
+		});
+	}
+}
+
+//角色权限
+function editRole(){
+	var row = $('#dg').datagrid('getSelected');
+	if(row){
+		$("#dlg2").dialog("open").dialog('setTitle', '角色权限信息');
+		/*url = "../d_m/data8.php?uid="+row.num;	
+		$("#fm").form("load", url);
+		$('#mdno').attr('readonly',true);
+		r=row.num;
+		getEditJson(r);
+		*/
+	}else {
+		$.messager.show({
+			title:'提示',
+			msg:'请选择一条数据',
+			timeout:500,
+			showType:'fade',
+			style:{
+				top:'400',
+				left:'400',
+			}
+		});
+	}
+	
+	
+	
+}
+//保存
+function saveStore(){
+	$('#fm').form('submit',{
+		url: url,
+		onSubmit: function(){
+			return $(this).form('validate');
+		},
+		success: function(result){
+			var result = eval('('+result+')');
+			if (result.errorMsg=="保存成功"){
+				$.messager.show({
+					title: '提示',
+					msg:'保存成功',
+					timeout:500,
+					style:{
+						top:'400',
+						left:'400',
+					}
+				});
+				$('#dlg').dialog('close');		// close the dialog
+				$('#dg').datagrid('reload');	// reload the user data
+			}
+			else {
+				$.messager.show({
+					title: '失败',
+					msg: result.errorMsg,
+					timeout:500,
+					style:{
+						top:'400',
+						left:'400',
+					}
+				});
+			}
+		}
+	});	
+	
+}
+//删除
+function destroyStore(){
+	var row = $('#dg').datagrid('getSelected');
+	if (row){
+		$.messager.confirm('提示','你确定删除这个门店？',function(r){
+			if (r){
+				$.post("../d_m/data13.php",{uid:row.num},function(result){
+					if (result.errorMsg="删除成功"){
+						$.messager.show({
+							title: '提示',
+							msg:'删除成功',
+							timeout:500,
+							style:{
+								top:'400',
+								left:'400',
+							}
+						});
+						$('#dg').datagrid('reload');	// reload the user data
+					} else {
+						$.messager.show({	// show error message
+							title: '错误',
+							msg: result.errorMsg,
+							timeout:500,
+							style:{
+								top:'400',
+								left:'400',
+							}
+						});
+					}
+				},'json');
+			}
+			
+		});
+	}
+	else{
+		$.messager.show({
+			title:'提示',
+			msg:'请选择一条数据',
+			timeout:500,
+			showType:'fade',
+			style:{
+				top:'400',
+				left:'400',
+			}
+		});
+	}
+}
+//查询
+function doSearch(){
+
+	$('#dg').datagrid('load',{
+		type: $('#cc').combobox('getValue'),
+		province: $('#cc2').combobox('getText'),
+		city: $('#cc3').combobox('getText'),
+		content: $("#other").val()
+	});
+	
+}
+function getAddJson(){	
+	$("#glyname").combobox({
+		valueField: 'id',
+		textField: 'name',
+		prompt:'选择管理员',
+		url: '../d_m/data6.php',
+		required:true,
+		editable:false 
+	});
+	$("#sheng").combobox({
+		valueField: 'id',
+		textField: 'province',
+		prompt:'选择省份',
+		url: '../d_m/data3.php',
+		onSelect: function(rec){
+			var url = '../d_m/data4.php?id='+rec.id;
+			$("#shi").combobox({
+				url: url,				
+			});
+		},
+		required:true,
+		editable:false 
+	});
+	
+	$("#shi").combobox({
+		valueField:'id',
+		textField:'city_name',
+		prompt:'选择城市',
+		url: '../d_m/data4.php',
+		required:true,
+		editable:false 
+	});
+	
+	$("#mdtype").combobox({
+		valueField: 'id',
+		textField: 'name',
+		prompt:'选择门店类型',
+		url: '../d_m/data2.php',
+		required:true,
+		editable:false 
+	});
+}
+function getEditJson(r){
+	$("#glyname").combobox({
+		valueField: 'id',
+		textField: 'name',
+		prompt:'选择管理员',
+		url: '../d_m/data11.php?uid='+r,
+		required:true,
+		editable:false 
+	});
+	$("#sheng").combobox({
+		valueField: 'id',
+		textField: 'province',
+		prompt:'选择省份',
+		url: '../d_m/data9.php?uid='+r,
+		onSelect: function(rec){
+			var url = '../d_m/data4.php?id='+rec.id;
+			$("#shi").combobox({
+				url: url,				
+			});
+		},
+		required:true,
+		editable:false 
+	});
+	
+	$("#shi").combobox({
+		valueField:'id',
+		textField:'city_name',
+		prompt:'选择城市',
+		url: '../d_m/data10.php?uid='+r,
+		required:true,
+		editable:false 
+	});
+	
+	$("#mdtype").combobox({
+		valueField: 'id',
+		textField: 'name',
+		prompt:'选择门店类型',
+		url: '../d_m/data12.php?uid='+r,
+		required:true,
+		editable:false 
+		
+	});
+	
+}
+
+function getChecked(){
+	var nodes = $('#tt').tree('getChecked');
+	var s = '';
+	for(var i=0; i<nodes.length; i++){
+		if (s != '') s += ',';
+		s += nodes[i].text;
+	}
+	alert(s);
+}
+function saveRole(){
+	getChecked();
+}
+
+
+//验证手机号格式是否正确  (不知道为啥不好用)
+$.extend($.fn.validatebox.defaults.rules, {    
+	phoneNum: {   
+		validator: function(value, param){ 
+		 return /^1[3-8]+\d{9}$/.test(value);
+		}
+	}
+});
+
+</script>
+</body>
+</html>
