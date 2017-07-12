@@ -1,0 +1,48 @@
+注意细节
+问问题之前要仔细思考之后再问，之后要动手尝试
+小黄鸭理论
+多学习少刷网页
+git命令行使用
+按照程序设计进行
+
+先commit
+再pull
+冲突除掉
+git add git commit
+git push（使用命令行）
+提交之后要查看差分
+git撤销
+git config (--global) push.default simple
+设置默认提交
+
+本地创建项目导入GitHub
+1.本地创建项目 2.进入目录 命令行执行 3.git init 4.git add . 5.git commit
+6、git remote add origin 'github上创建对应项目的ssh 或者是 url'
+7、git push -u 本地分支 git分支
+8、git push <远程主机名> <本地分支名>:<远程分支名>
+
+计划：servlet 
+问题1： servlet设置错误信息  前台怎么判断获取信息
+问题2： servlet filter是什么 我用filter处理的参数可以在servlet中使用吗？ 答：在进行servlet处理之前对表单数据进行处理的过程
+问题3： 怎么设置指定servlet的filter  答：无法指定servlet   可以指定文件夹
+问题4：NoClassDefFoundError   原因   答：没有找到合适的类 出现的原因是文件名Main.jsp的问题  解决办法 修改文件名
+
+	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>test.com.servlet.LogFilter</filter-class>
+		<init-param>
+			<param-name>Site</param-name>
+			<param-value>runoob course</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+php
+var_dump()  调试
+php输出sql语句的方法
+
+3月14号房东生日
+欢姐一本道德经
