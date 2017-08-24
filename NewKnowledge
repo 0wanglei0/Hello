@@ -11,3 +11,12 @@ Java侧已知两种方式：
 Js侧:下载JSCoverage，执行命令：jscoverage 项目路径 输出路径 可以查到js测试用例覆盖率
 参考网址：http://www.cnblogs.com/Leo_wl/p/4464319.html
 查看结果的时候需要启动本地服务器，然后在服务器上查看。
+
+2. jslint/jshint
+node环境下安装jslint
+ *   命令行： npm install -g jslint
+ *   目前调查只能逐个检测js文件，继续调查是否有idea插件可以用，或者有没有办法能够一次性检测所有js文件
+ *   可以通过jslint配置文件进行对文件检测标准的设定
+安装jshint
+ * 命令行 :npm install -g jshint
+ * 建议使用jshint
