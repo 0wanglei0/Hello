@@ -20,3 +20,5 @@ node环境下安装jslint
 安装jshint
  * 命令行 :npm install -g jshint
  * 建议使用jshint
+jslint不能一次检测所有的文件，但是可以检测特定文件夹下的所有js文件
+参考网址:[http://jshint.com/docs/]
