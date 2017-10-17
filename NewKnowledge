@@ -26,3 +26,24 @@ eslint -o reportFilePathAndName -f suffix filePath .js
 
 3.gradlelint java
  * [https://github.com/nebula-plugins/gradle-lint-plugin]
+
+
+使用的资源：https://stackoverflow.com/questions/16638345/how-to-decode-gzip-compressed-request-body-in-spring-mvc
+模拟前台数据：
+登录putty，创建json文件，压缩成gzip文件，命令行：gzip -c test.json > test.json.gz
+访问本地服务器命令：
+ curl -v -s --trace-ascii http_post_trace.log --data-binary @test.json.gz  -H "Content-Type: application/json" -H "accept-Encoding: gzip" -H "Content-Encoding: gzip"  -X POST http://192.168.1.108:8080/lottery/version
+后台接受数据解压
+调查过程：
+简单查看HTTP头协议包含的内容
+查看gzipInputStream解压
+查看request获取输入输出流
+请问了大明一次，了解到没有前台的压缩数据
+了解curl模拟请求
+解压成功
+解压后的数据传到Controller
+总结：
+1. 变量名的定义问题要注意，不要仅关注变量值或者变量名，要同时注意
+2. 不能局限于当前的文件，要考虑周全
+3. 不懂得文件要仔细查看再修改，免得麻烦
+4. 使用其他人的文件时尽量不要修改源文件的结构，以免修改错误影响效率和结果
