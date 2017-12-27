@@ -47,3 +47,15 @@ eslint -o reportFilePathAndName -f suffix filePath .js
 2. 不能局限于当前的文件，要考虑周全
 3. 不懂得文件要仔细查看再修改，免得麻烦
 4. 使用其他人的文件时尽量不要修改源文件的结构，以免修改错误影响效率和结果
+
+本地安装centos 7
+配置tomcat
+配置nginx 
+配置java
+负载均衡
+docker
+
+外网访问本地虚拟机，网络设置需要使用桥接方式
+然后关闭防火墙 service firewalld stop  
+查看防火墙状态  iptables -L
+这样就可以访问了
