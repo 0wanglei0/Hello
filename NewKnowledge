@@ -59,3 +59,6 @@ docker
 然后关闭防火墙 service firewalld stop  
 查看防火墙状态  iptables -L
 这样就可以访问了
+
+
+angularjs报错首先检查是否导入插件使用的js文件，controller错误还没解决
