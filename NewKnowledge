@@ -67,3 +67,23 @@ docker
 移植模块的时候不要一次把所有东西都挪到指定位置，方便解决问题，方便了解业务
 
 20180130 angular-file-saver插件导入时没有导入正确的js文件导致浪费了20分钟
+
+20180206 log4j升级log4j2 配置
+
+web.xml  添加下记代码，并删除原log4j的配置   
+<context-param>
+        <param-name>log4jContextName</param-name>
+        <param-value>API</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>classpath:log4j2.xml</param-value>
+    </context-param>
+    
+    建立resource文件夹，此文件classpath的默认读取路径
+    新建log4j.xml文件
+    gradle中添加下记代码
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.10.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
+ 
